@@ -84,3 +84,26 @@ const Column = {
         </div>
     `,
 };
+
+const Card = {
+    props: {
+        title: String;
+        list: Array;
+        index: Number;
+        column: Number;
+        moveCard: Function;
+        completedTime: String;
+        updateCard: Function;
+        cardsInTwoColumns: Number;
+
+    },
+    components: {
+        completed() {
+            const completedItems = this.list.filter(item => item.done).length;
+            return Math.floor((completedItems / this.list.length) * 100);
+        },
+        isBlocked() {
+            return this.column === 1 && this.totalCardsInSecondColumn >= 5 && this.completed < 100;
+        }
+    }
+};
