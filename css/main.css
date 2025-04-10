@@ -27,4 +27,13 @@ body {
     transition: transform 0.4s ease-in-out;
 }
 
+.card {
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #d2d0d0;
+    box-shadow: 0 4px 6px rgba(232, 222, 238, 0.5);
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+}
 

@@ -87,14 +87,14 @@ const Column = {
 
 const Card = {
     props: {
-        title: String;
-        list: Array;
-        index: Number;
-        column: Number;
-        moveCard: Function;
-        completedTime: String;
-        updateCard: Function;
-        cardsInTwoColumns: Number;
+        title: String,
+        list: Array,
+        index: Number,
+        column: Number,
+        moveCard: Function,
+        completedTime: String,
+        updateCard: Function,
+        cardsInTwoColumns: Number,
 
     },
     components: {
@@ -105,5 +105,37 @@ const Card = {
         isBlocked() {
             return this.column === 1 && this.totalCardsInSecondColumn >= 5 && this.completed < 100;
         }
-    }
+    },
+    methods: {
+        checkItem(index) {
+            if (this.isBlocked) return;
+            const completedItems = this.list.filter(item => item.done).length;
+            const completed = Math.floor((completedItems / this.list.length) * 100);
+            if (completed === 100 && !this.completedAt) {
+                const completedTime = new Date().toLocaleString();
+                console.log('Задача выполнена. Время:', completedTime);
+                this.updateCard(this.index, this.column, { completedAt: completedTime });
+            }
+
+            if (this.column === 1 && completed > 50) {
+                this.moveCard({ column: this.column, index: this.index }, 2);
+            } else if (this.column === 2 && completed === 100) {
+                this.moveCard({ column: this.column, index: this.index }, 3);
+            }
+            this.$root.checkBlockFirstColumn();
+        },
+    },
+    template: `
+        <div class="card">
+            <h2>{{ title }}</h2>
+            <ul>
+                <li v-for="(item, index) in list" :key="index">
+                  <input type="checkbox" v-model="item.done" @change="checkItem(index)"
+                   :disabled="item.done || isBlocked"/>
+                  {{ item.text }}
+                </li>
+            </ul>
+            <p v-if="completed === 100">Completed time: {{ completedTime }}</p>
+        </div>
+    `,
 };
