@@ -26,21 +26,7 @@ let app = new Vue({
             },
         },
         methods: {
-            /*состояние карточек*/
-            checkItem(index) {
-                const completedItems = this.list.filter(item => item.done).length; /*создаем массив и переносим готовые задачи*/
-                this.completed = Math.floor((completedItems / this.list.length) * 100);
 
-                if (this.completed === 100) {
-                    this.completedAt = new Date().toLocaleString();
-                }
-
-                if (this.column === 1 && this.completed > 50) {
-                    this.moveCard({ column: this.column, index: this.index }, 2);
-                } else if (this.column === 2 && this.completed === 100) {
-                    this.moveCard({ column: this.column, index: this.index }, 3);
-                }
-            },
         },
         template: `
                  <div class="card">
