@@ -57,4 +57,30 @@ let app = new Vue({
     },
 });
 
-
+const Column = {
+    props: {
+        columnNumber: Number,
+        cards: Array,
+        moveCard: Function,
+        updateCard: Function,
+        cardsInTwoColumns: Number,
+    },
+    components: { Card },
+    template: `
+        <div class="column">
+            <h2>Column {{ columnNumber }}</h2>
+            <div v-for="(card, index) in cards" :key="index">
+                <Card
+                  :title = "card.title"
+                  :list = "card.list"
+                  :column = "columnNumber"
+                  :index = "index"
+                  :completedTime ="card.completedTime"
+                  :moveCard = "moveCard"
+                  :updateCard = "updateCard"
+                  :cardsInTwoColumns = "cardsInTwoColumns"
+                />
+            </div>
+        </div>
+    `,
+};
