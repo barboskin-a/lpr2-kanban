@@ -5,12 +5,17 @@ body {
     color: #232323;
 }
 
-#app {
-    margin: 10px;
+h1{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+}
+
+#app {
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 15px;
 }
 
 
@@ -19,7 +24,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: 400px;
+    width: 450px;
+    padding-bottom: 20px;
     border-radius: 15px;
     background-color: white;
     border: #fce7ff;
@@ -28,12 +34,145 @@ body {
 }
 
 .card {
-    width: 300px;
+    width: 350px;
     background-color: #fff;
     padding: 20px;
+    margin-bottom: 15px;
     border-radius: 8px;
     border: 1px solid #d2d0d0;
     box-shadow: 0 4px 6px rgba(232, 222, 238, 0.5);
     transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+
+.card:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.card ul li {
+    margin: 6px 0;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.card input {
+    color: #6c63ff;
+    margin-right: 10px;
+    accent-color: #6c63ff;
+    transform: scale(1.2);
+}
+
+.card p {
+    font-size: 12px;
+    color: #6c63ff;
+    margin-top: 10px;
+    text-align: center;
+}
+
+button {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 14px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #aa85b0;
+}
+
+.columns-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+form {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    width: 700px;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #d0a0d7;
+}
+
+form button {
+    padding: 12px 20px;
+    background-color: #b574be;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+form button:hover {
+    background-color: #94609d;
+}
+
+form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+
 
